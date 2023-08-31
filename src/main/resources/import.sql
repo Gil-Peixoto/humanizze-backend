@@ -1,0 +1,4 @@
+INSERT INTO tb_cliente (nome, cpf, email, numero_celular, sexo, cep) VALUES ('joão', '05571541113', 'Gil@gmail.com', '61983480099', 'm', '72726114');
+INSERT INTO tb_cliente (nome, cpf, email, numero_celular, sexo, cep) VALUES ('fulano', '05571541113', 'Gil@gmail.com', '61983480099', 'm', '72726114');
+INSERT INTO tb_cliente (nome, cpf, email, numero_celular, sexo, cep) VALUES ('cicrano', '05571541113', 'Gil@gmail.com', '61983480099', 'm', '72726114');
+INSERT INTO tb_cliente (nome, cpf, email, numero_celular, sexo, cep) VALUES ('beltrano', '05571541113', 'Gil@gmail.com', '61983480099', 'm', '72726114');
