@@ -10,8 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_cliente")
-public class Cliente implements Serializable {
+@Table(name = "tb_profissional")
+public class Profissional implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -20,31 +20,28 @@ public class Cliente implements Serializable {
 	private Integer id;
 	private String nome;
 	private String cpf;
-	private String email;
+	private String registro;
 	private String numeroCelular;
-	private String sexo;
-	private String cep;
-	
-	public Cliente() {
+	private String especialidade;
+
+	public Profissional() {
 		
 	}
 
-	public Cliente(Integer id, String nome, String cpf, String email, String numeroCelular, String sexo, String cep) {
-		super();
+	public Profissional(Integer id, String nome, String cpf, String registro, String numeroCelular,String especialidade) {
+		
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
-		this.email = email;
+		this.registro = registro;
 		this.numeroCelular = numeroCelular;
-		this.sexo = sexo;
-		this.cep = cep;
+		this.especialidade = especialidade;
 	}
 	
+	
+
 	public Integer getId() {
 		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getNome() {
@@ -63,12 +60,12 @@ public class Cliente implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getRegistro() {
+		return registro;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setRegistro(String registro) {
+		this.registro = registro;
 	}
 
 	public String getNumeroCelular() {
@@ -79,20 +76,12 @@ public class Cliente implements Serializable {
 		this.numeroCelular = numeroCelular;
 	}
 
-	public String getSexo() {
-		return sexo;
+	public String getEspecialidade() {
+		return especialidade;
 	}
 
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-
-	public String getCep() {
-		return cep;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
+	public void setEspecialidade(String especialidade) {
+		this.especialidade = especialidade;
 	}
 
 	@Override
@@ -108,10 +97,11 @@ public class Cliente implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cliente other = (Cliente) obj;
+		Profissional other = (Profissional) obj;
 		return Objects.equals(id, other.id);
 	}
 	
 	
 	
-}	
+	
+}
