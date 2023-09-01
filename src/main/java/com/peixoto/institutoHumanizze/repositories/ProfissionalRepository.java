@@ -6,4 +6,5 @@ import com.peixoto.institutoHumanizze.entities.Profissional;
 
 public interface ProfissionalRepository extends JpaRepository<Profissional, Integer>{
 
+
 }
