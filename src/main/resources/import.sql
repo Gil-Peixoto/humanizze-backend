@@ -10,3 +10,10 @@ INSERT INTO tb_profissional (nome, cpf, registro, numero_celular, especialidade)
 INSERT INTO tb_profissional (nome, cpf, registro, numero_celular, especialidade) VALUES ('Gabriele Karyane', '05571541113', '856985', '61983480099', 'fonoaudiologia');
 INSERT INTO tb_profissional (nome, cpf, registro, numero_celular, especialidade) VALUES ('Jecelma Reis', '05571541113', '856985', '61983480099', 'psicopedagoga');
 INSERT INTO tb_profissional (nome, cpf, registro, numero_celular, especialidade) VALUES ('test', '05571541113', '856985','61983480099', 'psicopedagoga');
+
+
+INSERT INTO tb_agendamento (nome_cliente, nome_profissional) VALUES ('paciente1', 'Gabriele da Luz');
+INSERT INTO tb_agendamento (nome_cliente, nome_profissional) VALUES ('paciente2', 'Alexandra Martins');
+INSERT INTO tb_agendamento (nome_cliente, nome_profissional) VALUES ('paciente3', 'Jecelma Reis');
+INSERT INTO tb_agendamento (nome_cliente, nome_profissional) VALUES ('paciente4', 'Gabriele da Luz');
+INSERT INTO tb_agendamento (nome_cliente, nome_profissional) VALUES ('paciente5', 'Jecelma Reis');

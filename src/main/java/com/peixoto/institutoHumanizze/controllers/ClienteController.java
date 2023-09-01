@@ -1,6 +1,5 @@
 package com.peixoto.institutoHumanizze.controllers;
 
-import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.peixoto.institutoHumanizze.entities.Cliente;
 import com.peixoto.institutoHumanizze.services.ClienteService;
@@ -47,8 +45,7 @@ public class ClienteController {
 	@PostMapping
 	public ResponseEntity<Cliente> create(@RequestBody Cliente cliente) {
 		cliente = service.create(cliente);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(cliente.getId()).toUri();
-		return ResponseEntity.created(uri).build();
+		return ResponseEntity.ok(cliente);
 	}
 	
 	@DeleteMapping(value = "/{id}")
@@ -56,5 +53,6 @@ public class ClienteController {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
+	
 
 }

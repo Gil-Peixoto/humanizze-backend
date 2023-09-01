@@ -3,10 +3,6 @@ package com.peixoto.institutoHumanizze.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.peixoto.institutoHumanizze.repositories.AgendamentoRepository;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,21 +18,21 @@ public class Agendamento implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String agend_cliente;
-	private String agend_profissional;
+	private String nomeCliente;
+	private String nomeProfissional;
 	
-	@Autowired
-	AgendamentoRepository repository;
+	
 	
 	public Agendamento() {
 		
 	}
 	
-	public Agendamento(Integer id, Cliente agend_cliente, Profissional agend_profissional) {
+	public Agendamento(Integer id, Cliente cliente, Profissional profissional) {
 		this.id = id;
-		this.agend_cliente = agend_cliente.getNome();
-		this.agend_profissional = agend_profissional.getNome();
+		nomeCliente = cliente.getNome();
+		nomeProfissional = profissional.getNome();
 	}
+
 
 	public Integer getId() {
 		return id;
@@ -46,20 +42,20 @@ public class Agendamento implements Serializable {
 		this.id = id;
 	}
 
-	public String getAgend_cliente() {
-		return agend_cliente;
+	public String getNomeCliente() {
+		return nomeCliente;
 	}
 
-	public void setAgend_cliente(String agend_cliente) {
-		this.agend_cliente = agend_cliente;
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
 	}
 
-	public String getAgend_profissional() {
-		return agend_profissional;
+	public String getNomeProfissional() {
+		return nomeProfissional;
 	}
 
-	public void setAgend_profissional(String agend_profissional) {
-		this.agend_profissional = agend_profissional;
+	public void setNomeProfissional(String nomeProfissional) {
+		this.nomeProfissional = nomeProfissional;
 	}
 
 	@Override
@@ -78,9 +74,6 @@ public class Agendamento implements Serializable {
 		Agendamento other = (Agendamento) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
-	
-	
 
+	
 }
