@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.peixoto.institutoHumanizze.dto.ProfissionalDTO;
 import com.peixoto.institutoHumanizze.entities.Profissional;
 import com.peixoto.institutoHumanizze.repositories.ProfissionalRepository;
 
@@ -15,14 +16,14 @@ public class ProfissionalService {
 	@Autowired
 	ProfissionalRepository repository;
 	
-	public List<Profissional> findAll() {
+	public List<ProfissionalDTO> findAll() {
 		List<Profissional> list = repository.findAll();
-		return list;
+		return list.stream().map(x -> new ProfissionalDTO(x)).toList();
 	}
 	
-	public Optional<Profissional> findById(Integer id) {
+	public List<ProfissionalDTO> findById(Integer id) {
 		Optional<Profissional> opt = repository.findById(id);
-		return opt;
+		return opt.stream().map(x -> new ProfissionalDTO(x)).toList();
 	}
 	
 	public Profissional update(Integer id, Profissional profissional) {

@@ -1,6 +1,7 @@
 package com.peixoto.institutoHumanizze.entities;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -20,17 +21,22 @@ public class Agendamento implements Serializable {
 	private Integer id;
 	private String nomeCliente;
 	private String nomeProfissional;
-	
+	private String data;
+    private String hora;
 	
 	
 	public Agendamento() {
 		
 	}
 	
-	public Agendamento(Integer id, Cliente cliente, Profissional profissional) {
+	public Agendamento(Integer id, Cliente cliente, Profissional profissional, SimpleDateFormat data, SimpleDateFormat hora) {
+		SimpleDateFormat data_format = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat hora_format = new SimpleDateFormat("HH:mm");
 		this.id = id;
 		nomeCliente = cliente.getNome();
 		nomeProfissional = profissional.getNome();
+		this.data = data.format(data_format);
+		this.hora = hora.format(hora_format);
 	}
 
 
@@ -56,6 +62,22 @@ public class Agendamento implements Serializable {
 
 	public void setNomeProfissional(String nomeProfissional) {
 		this.nomeProfissional = nomeProfissional;
+	}
+	
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
+	public String getHora() {
+		return hora;
+	}
+
+	public void setHora(String hora) {
+		this.hora = hora;
 	}
 
 	@Override

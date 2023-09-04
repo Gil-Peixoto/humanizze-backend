@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.peixoto.institutoHumanizze.dto.ClienteDTO;
 import com.peixoto.institutoHumanizze.entities.Cliente;
 import com.peixoto.institutoHumanizze.repositories.ClienteRepository;
 
@@ -15,14 +16,14 @@ public class ClienteService {
 	@Autowired
 	ClienteRepository repository;
 	
-	public List<Cliente> findAll() {
+	public List<ClienteDTO> findAll() {
 		List<Cliente> list = repository.findAll();
-		return list;
+		return list.stream().map(x -> new ClienteDTO(x)).toList();
 	}
 	
-	public Optional<Cliente> findById(Integer id) {
-		Optional<Cliente> obj = repository.findById(id);
-		return obj;
+	public List<ClienteDTO> findById(Integer id) {
+		Optional<Cliente> opt = repository.findById(id);
+		return opt.stream().map(x -> new ClienteDTO(x)).toList();
 	}
 	
 	public Cliente update(Integer id, Cliente cliente) {

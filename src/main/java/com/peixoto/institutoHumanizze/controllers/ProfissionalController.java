@@ -2,7 +2,6 @@ package com.peixoto.institutoHumanizze.controllers;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.peixoto.institutoHumanizze.dto.ProfissionalDTO;
 import com.peixoto.institutoHumanizze.entities.Profissional;
 import com.peixoto.institutoHumanizze.services.ProfissionalService;
 
@@ -27,14 +27,14 @@ public class ProfissionalController {
 	ProfissionalService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Profissional>> findAll() {
-		List<Profissional> list = service.findAll();
+	public ResponseEntity<List<ProfissionalDTO>> findAll() {
+		List<ProfissionalDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Optional<Profissional>> findById(@PathVariable Integer id) {
-		Optional<Profissional> opt = service.findById(id);
+	public ResponseEntity<List<ProfissionalDTO>> findById(@PathVariable Integer id) {
+		List<ProfissionalDTO> opt = service.findById(id);
 		return ResponseEntity.ok().body(opt);
 	}
 	

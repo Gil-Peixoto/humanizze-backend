@@ -1,7 +1,6 @@
 package com.peixoto.institutoHumanizze.controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.peixoto.institutoHumanizze.dto.ClienteDTO;
 import com.peixoto.institutoHumanizze.entities.Cliente;
 import com.peixoto.institutoHumanizze.services.ClienteService;
 
@@ -25,14 +25,14 @@ public class ClienteController {
 	ClienteService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Cliente>> findAll() {
-		List<Cliente> list = service.findAll();
+	public ResponseEntity<List<ClienteDTO>> findAll() {
+		List<ClienteDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Optional<Cliente>> findById(@PathVariable Integer id) {
-		Optional<Cliente> obj = service.findById(id);
+	public ResponseEntity<List<ClienteDTO>> findById(@PathVariable Integer id) {
+		List<ClienteDTO> obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	

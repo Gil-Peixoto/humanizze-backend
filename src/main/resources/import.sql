@@ -12,8 +12,8 @@ INSERT INTO tb_profissional (nome, cpf, registro, numero_celular, especialidade)
 INSERT INTO tb_profissional (nome, cpf, registro, numero_celular, especialidade) VALUES ('test', '05571541113', '856985','61983480099', 'psicopedagoga');
 
 
-INSERT INTO tb_agendamento (nome_cliente, nome_profissional) VALUES ('paciente1', 'Gabriele da Luz');
-INSERT INTO tb_agendamento (nome_cliente, nome_profissional) VALUES ('paciente2', 'Alexandra Martins');
-INSERT INTO tb_agendamento (nome_cliente, nome_profissional) VALUES ('paciente3', 'Jecelma Reis');
-INSERT INTO tb_agendamento (nome_cliente, nome_profissional) VALUES ('paciente4', 'Gabriele da Luz');
-INSERT INTO tb_agendamento (nome_cliente, nome_profissional) VALUES ('paciente5', 'Jecelma Reis');
+INSERT INTO tb_agendamento (nome_cliente, nome_profissional, data, hora) VALUES ('paciente1', 'Gabriele da Luz', '04/05/2023', '10:53');
+INSERT INTO tb_agendamento (nome_cliente, nome_profissional, data, hora) VALUES ('paciente2', 'Alexandra Martins', '10/07/2023', '15:53');
+INSERT INTO tb_agendamento (nome_cliente, nome_profissional, data, hora) VALUES ('paciente3', 'Jecelma Reis', '25/09/2023', '07:53');
+INSERT INTO tb_agendamento (nome_cliente, nome_profissional, data, hora) VALUES ('paciente4', 'Gabriele da Luz', '01/08/2023', '16:53');
+INSERT INTO tb_agendamento (nome_cliente, nome_profissional, data, hora) VALUES ('paciente5', 'Jecelma Reis', '30/05/2023', '12:53');
