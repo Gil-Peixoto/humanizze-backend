@@ -19,6 +19,8 @@ import com.peixoto.institutoHumanizze.dto.ProfissionalDTO;
 import com.peixoto.institutoHumanizze.entities.Profissional;
 import com.peixoto.institutoHumanizze.services.ProfissionalService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/profissional")
 public class ProfissionalController {
@@ -39,13 +41,13 @@ public class ProfissionalController {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Profissional> update(@PathVariable Integer id ,@RequestBody Profissional profissional) {
+	public ResponseEntity<Profissional> update(@PathVariable Integer id ,@RequestBody @Valid Profissional profissional) {
 		Profissional obj = service.update(id, profissional);
 		return ResponseEntity.ok().body(obj);
 	}
 	
 	@PostMapping
-	public ResponseEntity<Profissional> create(@RequestBody Profissional profissional) {
+	public ResponseEntity<Profissional> create(@RequestBody @Valid Profissional profissional) {
 		profissional = service.create(profissional);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(profissional.getId()).toUri();
 		return ResponseEntity.created(uri).build();

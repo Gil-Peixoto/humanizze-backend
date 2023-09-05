@@ -3,11 +3,15 @@ package com.peixoto.institutoHumanizze.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "tb_cliente")
@@ -18,11 +22,18 @@ public class Cliente implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@NotBlank(message = "Campo nome não informado")
 	private String nome;
+	@CPF
+	@NotBlank(message = "Campo cpf não informado")
 	private String cpf;
+	@Email
+	@NotBlank(message = "Campo email não informado")
 	private String email;
+	@NotBlank(message = "Campo número não informado")
 	private String numeroCelular;
 	private String sexo;
+	@NotBlank(message = "Campo cep não informado")
 	private String cep;
 	
 	public Cliente() {

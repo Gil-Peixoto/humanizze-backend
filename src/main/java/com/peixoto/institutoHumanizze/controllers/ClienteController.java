@@ -17,6 +17,8 @@ import com.peixoto.institutoHumanizze.dto.ClienteDTO;
 import com.peixoto.institutoHumanizze.entities.Cliente;
 import com.peixoto.institutoHumanizze.services.ClienteService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/cliente")
 public class ClienteController {
@@ -37,13 +39,13 @@ public class ClienteController {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Cliente> update(@PathVariable Integer id,@RequestBody Cliente cliente) {
+	public ResponseEntity<Cliente> update(@PathVariable Integer id,@RequestBody @Valid Cliente cliente) {
 		Cliente newCliente = service.update(id, cliente);
 		return ResponseEntity.ok().body(newCliente);
 	}
 	
 	@PostMapping
-	public ResponseEntity<Cliente> create(@RequestBody Cliente cliente) {
+	public ResponseEntity<Cliente> create(@RequestBody @Valid Cliente cliente) {
 		cliente = service.create(cliente);
 		return ResponseEntity.ok(cliente);
 	}

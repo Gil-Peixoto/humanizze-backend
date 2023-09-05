@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.peixoto.institutoHumanizze.entities.Agendamento;
 import com.peixoto.institutoHumanizze.services.AgendamentoService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/agendamento")
 public class AgendamentoController {
@@ -37,13 +39,13 @@ public class AgendamentoController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Agendamento> update(@PathVariable Integer id, @RequestBody Agendamento agendamento) {
+	public ResponseEntity<Agendamento> update(@PathVariable Integer id, @RequestBody @Valid Agendamento agendamento) {
 		Agendamento obj = service.update(id, agendamento);
 		return ResponseEntity.ok().body(obj);
 	}
 	
 	@PostMapping
-	public ResponseEntity<Agendamento> create(@RequestBody Agendamento agendamento) {
+	public ResponseEntity<Agendamento> create(@RequestBody @Valid Agendamento agendamento) {
 		agendamento = service.create(agendamento);
 		return ResponseEntity.ok(agendamento);
 	}
