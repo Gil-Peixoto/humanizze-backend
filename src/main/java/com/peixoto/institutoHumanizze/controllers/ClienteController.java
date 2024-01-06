@@ -3,6 +3,7 @@ package com.peixoto.institutoHumanizze.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,7 +48,7 @@ public class ClienteController {
 	@PostMapping
 	public ResponseEntity<Cliente> create(@RequestBody @Valid Cliente cliente) {
 		cliente = service.create(cliente);
-		return ResponseEntity.ok(cliente);
+		return ResponseEntity.status(HttpStatus.CREATED).body(cliente);
 	}
 	
 	@DeleteMapping(value = "/{id}")

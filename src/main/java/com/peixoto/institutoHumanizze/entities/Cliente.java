@@ -36,6 +36,7 @@ public class Cliente implements Serializable {
 	@NotBlank(message = "Campo cep não informado")
 	private String cep;
 	
+		
 	public Cliente() {
 		
 	}
